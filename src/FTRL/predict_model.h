@@ -174,7 +174,7 @@ double predict_model<T>::get_score(const vector<pair<string, double> >& x, doubl
         }
         result += 0.5 * (sum * sum - sum_sqr);
     }
-    return 1.0/(1.0 + exp(-result));
+    return result;
 }
 
 

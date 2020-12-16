@@ -290,7 +290,7 @@ void ftrl_trainer<T>::train(int y, const vector<pair<string, double> >& x)
     vector<double> sum(pModel->factor_num);
     double bias = thetaBias->wi;
     double p = pModel->predict(x, bias, theta, sum);
-    double mult = y * (1 / (1 + exp(-p * y)) - 1);
+    double mult = p - y;
     //update w_n, w_z
     for(int i = 0; i <= xLen; ++i)
     {

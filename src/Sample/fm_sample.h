@@ -11,7 +11,7 @@ using namespace std;
 class fm_sample
 {
 public:
-    int y;
+    double y;
     vector<pair<string, double> > x;
     fm_sample(const string& line);
 private:
@@ -28,8 +28,7 @@ fm_sample::fm_sample(const string& line)
     this->x.clear();
     size_t posb = line.find_first_not_of(spliter, 0);
     size_t pose = line.find_first_of(spliter, posb);
-    int label = atoi(line.substr(posb, pose-posb).c_str());
-    this->y = label > 0 ? 1 : -1;
+    this->y = atof(line.substr(posb, pose-posb).c_str());
     string key;
     double value;
     while(pose < line.size())
